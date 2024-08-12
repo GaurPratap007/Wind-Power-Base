@@ -1,6 +1,4 @@
-import dash
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc, html
 import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
 from plotly.subplots import make_subplots
@@ -9,8 +7,8 @@ from app_init import app
 import numpy as np
 
 ####### load the data ########
-url = 'https://drive.google.com/file/d/1-1xB5H5D17zyCheRphDYz7D5C98jbk0I/view?usp=sharing'
-path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
+#url = 'https://drive.google.com/file/d/1-1xB5H5D17zyCheRphDYz7D5C98jbk0I/view?usp=sharing'
+path = r'D:\Wind Power Prediction\Wind-Power-Base\03 Building Models - TimeSeries\T1.csv'
 df = pd.read_csv(path)
 
 ####### helper functions #########

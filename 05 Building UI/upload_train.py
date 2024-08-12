@@ -1,6 +1,6 @@
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc, html
+
 import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
 from plotly.subplots import make_subplots
@@ -28,19 +28,19 @@ def save_csv(contents, filename):
 ######## save csv file ends ############
 
 ######### add training dropdown #####
-dropdown = dbc.FormGroup(
-    [
-        dbc.Label("Mode of training", html_for="dropdown"),
-        dcc.Dropdown(
-            id="training_mode",
-            options=[
-                {"label": "Quick Training (Low Accuracy)", "value": 1},
-                {"label": "Satisfactory Training (Recommended Medium Accuracy)", "value": 2},
-                {"label": "Rigourous Training (High Accuracy)", "value": 3},
-            ],
-        ),
-    ]
+dropdown = dbc.Form(
+    dbc.Row(
+        [
+            dbc.Label("Select an option", width="auto"),
+            dbc.Col(
+                dbc.Select(id="dropdown"),
+                width=6,
+            ),
+        ],
+        className="mb-3",  # Optional: Adds spacing between form rows
+    )
 )
+
 
 ####### end training dropdown ###########
 
